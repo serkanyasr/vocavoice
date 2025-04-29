@@ -1,0 +1,30 @@
+[project]
+name = "vocavoice"
+version = "0.1.0"
+description = "VocaVoice using crewAI"
+authors = [{ name = "Serkan Yasar", email = "yasarserkan016@gmail.com" }]
+requires-python = ">=3.10,<3.13"
+dependencies = [
+    "crewai[tools]>=0.102.0,<1.0.0",
+    "distutils-pytest>=0.2.1",
+    "setuptools>=80.0.0",
+    "streamlit>=1.44.1"
+]
+
+[project.optional-dependencies]
+linux = ["pysqlite3-binary"]
+
+
+[project.scripts]
+vocavoice = "vocavoice.main:run"
+run_crew = "vocavoice.main:run"
+train = "vocavoice.main:train"
+replay = "vocavoice.main:replay"
+test = "vocavoice.main:test"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.crewai]
+type = "crew"

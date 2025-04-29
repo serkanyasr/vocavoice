@@ -1,0 +1,58 @@
+generate_script:
+  description: >
+    Write a podcast-style script in {language} that naturally incorporates the given vocabulary,
+    revolves around the selected topic, and matches the specified language level.
+    Each time a target vocabulary word is used, briefly pause to explain its meaning and usage in {language}.
+    Also suggest 1–2 alternative words that could replace it.
+    The tone should feel like a friendly, flowing podcast for learners of {language}.
+  expected_output: >
+    An educational podcast script in {language}.
+  output_key: generated_script
+  input_keys: ["topic", "vocabulary_list", "language_level", "language"]
+  agent: writer_agent
+
+check_vocabulary_usage:
+  description: >
+    Review the generated script and verify whether all the target vocabulary words are used correctly in {language}.
+    If any words are missing, provide suggestions or highlight omissions.
+  agent: reviewer_agent
+  expected_output: >
+    A report of which vocabulary words were used and which were missed, with suggestions in {language}.
+  input_keys: ["generated_script", "vocabulary_list", "language"]
+  output_key: vocab_check_report
+
+simplify_script_learners:
+  description: >
+    Take the generated script in {language} and simplify it to match the learner's level. Keep the tone friendly
+    and natural while ensuring that vocabulary explanations remain clear in {language}.
+    Save the script as "{topic}.md" in the {script_path} folder using UTF-8 encoding to support non-Latin characters.
+  agent: simplifier_agent
+  expected_output: |
+    - A simplified version of the {language} script
+    - Full path to the saved script file
+  input_keys: ["generated_script", "language_level", "script_path", "topic", "language"]
+  output_keys:
+    - simplified_script
+    - script_file_full_path
+
+
+convert_audio:
+  description: >
+    Take the simplified script in {language} and convert it into a high-quality audio file with slight emphasis on target vocabulary words.
+    Save the file in {audio_path}.
+  agent: tts_agent
+  expected_output: |
+    - Full path to the saved audio file
+  input_keys: ["simplified_script", "file_naming", "audio_path", "language"]
+  output_keys:
+    - audio_file_full_path
+
+save_to_yaml:
+  description: >
+    This task saves the audio file full path and script file full path to a YAML file.
+    The file is named '{path_config}/{topic}.yaml'.
+  agent: save_to_yaml_agent
+  expected_output: "Confirmation message or error message"
+  input_keys:
+    - audio_file_full_path
+    - script_file_full_path

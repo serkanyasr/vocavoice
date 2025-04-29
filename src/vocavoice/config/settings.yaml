@@ -1,0 +1,15 @@
+app:
+  language: English
+  language_level: A2
+  llm_model: gpt-4o-mini
+  topic: Technology
+  tts_model: gpt-4o-mini-tts
+  tts_voice: alloy
+  vocabulary_list:
+  - tear
+  voice_style: friendly
+output:
+  audio_path: D:/agent_projects/vocavoice/outputs/audio
+  file_naming: Technology
+  path_config: D:/agent_projects/vocavoice/outputs
+  script_path: D:/agent_projects/vocavoice/outputs/scripts
