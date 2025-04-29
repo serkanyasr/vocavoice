@@ -8,11 +8,9 @@ dependencies = [
     "crewai[tools]>=0.102.0,<1.0.0",
     "distutils-pytest>=0.2.1",
     "setuptools>=80.0.0",
-    "streamlit>=1.44.1"
+    "streamlit>=1.44.1",
+    "pysqlite3-binary; sys_platform == 'linux'"
 ]
-
-[project.optional-dependencies]
-linux = ["pysqlite3-binary"]
 
 
 [project.scripts]
