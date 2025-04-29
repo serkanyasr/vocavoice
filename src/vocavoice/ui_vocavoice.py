@@ -97,8 +97,8 @@ def run_vocavoice(
 
 
         return {
-            "script_file_full_path": _output_config["script_file_full_path"],
-            "audio_full_path": _output_config["audio_file_full_path"]
+            "generated_script_file_full_path": _output_config["generated_script_file_full_path"],
+            "generated_audio_file_full_path": _output_config["generated_audio_file_full_path"]
         }
 
     except Exception as e:

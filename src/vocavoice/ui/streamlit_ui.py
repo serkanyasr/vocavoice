@@ -85,22 +85,22 @@ if start_button:
 
 
             st.success("✅ Your podcast is ready!")
-            st.write(results)
+            print(results)
             # Show script
             st.write("### 📝 Generated Script")
 
             try:
-                with open(results["script_file_full_path"], "r") as f:
+                with open(results["generated_script_file_full_path"], "r") as f:
                     script_content = f.read()
                 st.text(script_content)
             except:
-                st.error("script_file_full_path not found")
+                st.error("generated_script_file_full_path not found")
                 
             try:
                 # Show audio
                 st.write("### 🔊 Listen to Your Podcast")
-                with open(results["audio_file_full_path"], "rb") as audio_file:
+                with open(results["generated_audio_file_full_path"], "rb") as audio_file:
                     audio_bytes = audio_file.read()
                     st.audio(audio_bytes, format="audio/mp3")
             except:
-                st.error("audio_file_full_path")
+                st.error("generated_audio_file_full_path")

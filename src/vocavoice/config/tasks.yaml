@@ -26,15 +26,41 @@ simplify_script_learners:
   description: >
     Take the generated script in {language} and simplify it to match the learner's level. Keep the tone friendly
     and natural while ensuring that vocabulary explanations remain clear in {language}.
-    Save the script as "{topic}.md" in the {script_path} folder. Make sure the saving the file
+    Save the simplified script as "{topic}.md" in the {script_path} folder. 
+    Ensure that the script is saved with UTF-8 encoding to support non-Latin characters.
   agent: simplifier_agent
   expected_output: |
     - A simplified version of the {language} script
-    - Full path to the saved script file
+    - Full path to the saved generated script file
   input_keys: ["generated_script", "language_level", "script_path", "topic", "language"]
   output_keys:
     - simplified_script
-    - script_file_full_path
+    - generated_script_file_full_path
+  actions:
+    - simplify_script: 
+        description: >
+          Simplify the generated script for the learner's level and save it in the specified directory.
+        code: |
+          # Simplify the script for the learner's level
+          simplified_script = simplify_text(generated_script, language_level)
+
+          # Define the full path for saving the file
+          file_path = Path(script_path) / f"{topic}.md"
+          
+          # Make sure the path exists
+          if not file_path.parent.exists():
+              file_path.parent.mkdir(parents=True, exist_ok=True)
+
+          # Save the simplified script to the file with UTF-8 encoding
+          with open(file_path, "w", encoding="utf-8") as file:
+              file.write(simplified_script)
+
+          # Return the simplified script and the full file path
+          return {
+              "simplified_script": simplified_script,
+              "generated_script_file_full_path": str(file_path)
+          }
+
 
 
 convert_audio:
@@ -46,14 +72,14 @@ convert_audio:
     - Full path to the saved audio file
   input_keys: ["simplified_script", "file_naming", "audio_path", "language"]
   output_keys:
-    - audio_file_full_path
+    - generated_audio_file_full_path
 
 save_to_yaml:
   description: >
-    This task saves the audio_file_full_path and script_file_full_path to a YAML file.
-    The file is named '{path_config}/{topic}.yaml'.
+    This task saves the generated_audio_file_full_path and generated_script_file_full_path to a YAML file.
+    The file is named '{path_config}/paths_config.yaml'.
   agent: save_to_yaml_agent
   expected_output: "Confirmation message or error message"
   input_keys:
-    - audio_file_full_path
-    - script_file_full_path
+    - generated_audio_file_full_path
+    - generated_script_file_full_path

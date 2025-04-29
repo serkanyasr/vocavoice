@@ -38,7 +38,7 @@ tts_agent:
 save_to_yaml_agent:
   role: Yaml File Generator
   goal: >
-    Save the parameters audio_file_full_path, script_file_full_path  to a Yaml file.
+    Save the parameters generated_audio_file_full_path, generated_script_file_full_path  to a Yaml file.
   backstory: >
     You are an expert content creator who knows how to structure data in an easily readable and well-organized format.
     Your goal is to create a structured Yaml file that captures the details of a podcast script and associated data.
