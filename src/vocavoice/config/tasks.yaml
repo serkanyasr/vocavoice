@@ -2,11 +2,12 @@ generate_script:
   description: >
     Write a podcast-style script in {language} that naturally incorporates the given vocabulary,
     revolves around the selected topic, and matches the specified language level.
-    Each time a target vocabulary word is used, briefly pause to explain its meaning and usage in {language}.
-    Also suggest 1–2 alternative words that could replace it.
+    Each time a target vocabulary word is used, briefly explain its meaning and usage in {language},
+    and suggest 1–2 alternative words that could replace it.
+    Do not include any sound or music-related directions (e.g., [Intro Music], [Sound of...]).
     The tone should feel like a friendly, flowing podcast for learners of {language}.
   expected_output: >
-    An educational podcast script in {language}.
+    An educational podcast script in {language} without audio direction tags.
   output_key: generated_script
   input_keys: ["topic", "vocabulary_list", "language_level", "language"]
   agent: writer_agent
