@@ -26,7 +26,7 @@ simplify_script_learners:
   description: >
     Take the generated script in {language} and simplify it to match the learner's level. Keep the tone friendly
     and natural while ensuring that vocabulary explanations remain clear in {language}.
-    Save the script as "{topic}.md" in the {script_path} folder using UTF-8 encoding to support non-Latin characters.
+    Save the script as "{topic}.md" in the {script_path} folder. Make sure the saving the file
   agent: simplifier_agent
   expected_output: |
     - A simplified version of the {language} script
@@ -40,7 +40,7 @@ simplify_script_learners:
 convert_audio:
   description: >
     Take the simplified script in {language} and convert it into a high-quality audio file with slight emphasis on target vocabulary words.
-    Save the file in {audio_path}.
+    Save the file in {audio_path}. Make sure the saving the file
   agent: tts_agent
   expected_output: |
     - Full path to the saved audio file
