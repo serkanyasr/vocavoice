@@ -70,7 +70,7 @@ if start_button:
     else:
         vocabulary_list = [word.strip() for word in vocabulary_input.split(",") if word.strip()]
 
-        with st.spinner("Generating your podcast... 🎧"):
+        with st.spinner("Generating your podcast... 🎧.This may take up to 1 minute. Please hang tight!"):
             results = run_vocavoice(
                 language=language,
                 topic=topic,
@@ -90,18 +90,17 @@ if start_button:
             st.write("### 📝 Generated Script")
 
             try:
-                with open(results["script_full_path"], "r") as f:
+                with open(results["script_file_full_path"], "r") as f:
                     script_content = f.read()
                 st.text(script_content)
             except:
-                st.error("script_full_path not found")
+                st.error("script_file_full_path not found")
                 
             try:
                 # Show audio
                 st.write("### 🔊 Listen to Your Podcast")
-                with open(results["audio_full_path"], "rb") as audio_file:
+                with open(results["audio_file_full_path"], "rb") as audio_file:
                     audio_bytes = audio_file.read()
                     st.audio(audio_bytes, format="audio/mp3")
             except:
-                st.error("audio_full_path")
-                
+                st.error("audio_file_full_path")

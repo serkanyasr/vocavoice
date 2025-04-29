@@ -50,7 +50,7 @@ convert_audio:
 
 save_to_yaml:
   description: >
-    This task saves the audio file full path and script file full path to a YAML file.
+    This task saves the audio_file_full_path and script_file_full_path to a YAML file.
     The file is named '{path_config}/{topic}.yaml'.
   agent: save_to_yaml_agent
   expected_output: "Confirmation message or error message"
