@@ -90,15 +90,15 @@ def run_vocavoice(
         Vocavoice().crew().kickoff(inputs=inputs)
 
         # Define output file paths
-        _output = output_dir / f"{topic}.yaml"
+        _output = Path(config["output"]["path_config"]) / "paths_config.yaml"
         # Load the  file
         with open(_output, "r", encoding="utf-8") as file:
             _output_config = yaml.safe_load(file)
 
 
         return {
-            "generated_script_file_full_path": _output_config["generated_script_file_full_path"],
-            "generated_audio_file_full_path": _output_config["generated_audio_file_full_path"]
+            "generated_script_file": _output_config["generated_script_file_full_path"],
+            "generated_audio_file": _output_config["generated_audio_file_full_path"]
         }
 
     except Exception as e:
