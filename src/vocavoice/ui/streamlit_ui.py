@@ -42,24 +42,11 @@ with st.sidebar:
 
     start_button = st.button("🚀 Create My Podcast")
 
-# --- Main Content with Columns ---
-col1, col2 = st.columns([3, 1])  # Sol daha küçük, sağ daha büyük
-
-with col1:
-    st.title("🎙️ Vocabulary-Based Podcast Creator")
-    st.markdown("""
-    Welcome! This tool will help you create a mini podcast using the vocabulary words you've learned today.  
-    It will generate a script and audio for you automatically. Practice makes perfect! 🚀
-    """)
-    
-with col2:
-    st.markdown("### 🙋‍♂️ About the Creator")
-    st.markdown("""
-    Created with ❤️ by **Serkan Yaşar**  
-    🔗 [LinkedIn](https://www.linkedin.com/in/serkanyasar)  
-    💼 [GitHub](https://github.com/serkanyasr)  
-    🌐 [Website](https://www.serkanyasar.dev)  
-    """)    
+st.title("🎙️ Vocabulary-Based Podcast Creator")
+st.markdown("""
+Welcome! This tool will help you create a mini podcast using the vocabulary words you've learned today.  
+It will generate a script and audio for you automatically. Practice makes perfect! 🚀
+""")
 st.markdown("---")
 
 

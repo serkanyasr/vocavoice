@@ -1,15 +1,29 @@
 app:
   language: English
-  language_level: A2
+  language_level: B1
   llm_model: gpt-4o-mini
-  topic: Technology
+  topic: Education
   tts_model: gpt-4o-mini-tts
-  tts_voice: alloy
+  tts_voice: ash
   vocabulary_list:
-  - tear
+  - wonder
+  - explore
+  - improve
+  - journey
+  - peaceful
+  - create
+  - achieve
+  - believe
+  - connect
+  - courage
+  - gentle
+  - inspire
+  - growth
+  - mindful
+  - harmony
   voice_style: friendly
 output:
   audio_path: D:/agent_projects/vocavoice/outputs/audio
-  file_naming: Technology
+  file_naming: Education
   path_config: D:/agent_projects/vocavoice/outputs
   script_path: D:/agent_projects/vocavoice/outputs/scripts
