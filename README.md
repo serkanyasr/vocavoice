@@ -17,9 +17,9 @@
 
 ## 🎧 Demo
 
-![UI Screenshot](path/to/screenshot.png)
+https://github.com/user-attachments/assets/a9f3238f-feca-4974-91b2-3b0a73622748
 
-[Listen to a sample podcast](link-to-audio.mp3)
+
 
 ## 🎯 Example Use Case
 
