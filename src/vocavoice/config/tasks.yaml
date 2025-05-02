@@ -6,8 +6,12 @@ generate_script:
     and suggest 1–2 alternative words that could replace it.
     Do not include any sound or music-related directions (e.g., [Intro Music], [Sound of...]).
     The tone should feel like a friendly, flowing podcast for learners of {language}.
+
+    At the end of the script, include a "Vocabulary Review" section listing each word used,
+    its definition in {language}, and suggested synonyms or similar expressions.
   expected_output: >
-    An educational podcast script in {language} without audio direction tags.
+    An educational podcast script in {language} without audio direction tags,
+    ending with a "Vocabulary Review" section that summarizes the target words.
   output_key: generated_script
   input_keys: ["topic", "vocabulary_list", "language_level", "language"]
   agent: writer_agent
