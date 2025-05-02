@@ -71,7 +71,7 @@ vocavoice/
 First, install UV:
 
 ```bash
-pip install uv
+❯ pip install uv
 ```
 
 Navigate to your project directory and install dependencies:
@@ -82,6 +82,7 @@ Navigate to your project directory and install dependencies:
 ❯ cd vocavoice
 
 # Install dependencies
+❯ uv tool install crewai
 ❯ crewai install
 ```
 
