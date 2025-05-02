@@ -3758,7 +3758,6 @@ source = { editable = "." }
 dependencies = [
     { name = "crewai", extra = ["tools"] },
     { name = "distutils-pytest" },
-    { name = "litellm" },
     { name = "pysqlite3-binary", marker = "sys_platform == 'linux'" },
     { name = "setuptools" },
     { name = "streamlit" },
@@ -3768,7 +3767,6 @@ dependencies = [
 requires-dist = [
     { name = "crewai", extras = ["tools"], specifier = ">=0.102.0,<1.0.0" },
     { name = "distutils-pytest", specifier = ">=0.2.1" },
-    { name = "litellm", specifier = "==1.60.2" },
     { name = "pysqlite3-binary", marker = "sys_platform == 'linux'" },
     { name = "setuptools", specifier = ">=80.0.0" },
     { name = "streamlit", specifier = ">=1.44.1" },

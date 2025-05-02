@@ -9,7 +9,6 @@ dependencies = [
     "distutils-pytest>=0.2.1",
     "setuptools>=80.0.0",
     "streamlit>=1.44.1",
-    "litellm==1.60.2",
     "pysqlite3-binary; sys_platform == 'linux'"
 ]
 
